@@ -1,0 +1,36 @@
+project: META_BRAIN
+version: 0.1
+created: 2026-03-27
+
+memory_map:
+
+  SIGNAL:
+    - node_0001
+
+  PATTERN:
+    - node_0002
+
+  REFUTATION:
+    - node_0003
+
+  MODEL:
+    - node_0006
+
+  CONVERGENCE:
+    - node_0007
+
+  LOOP:
+    - node_0008
+
+  ANTI_BIAS:
+    - node_0009
+
+  SELF_IMPROVEMENT:
+    - node_0010
+
+system_rules:
+
+  refutation_priority: true
+  anti_bias_required: true
+  require_convergence: true
+  continuous_loop: true
