@@ -1,0 +1,29 @@
+project: META_BRAIN
+source_chat: bootstrap
+node_id: 0009
+created: 2026-03-27
+
+type: ANTI_BIAS
+
+content: >
+All conclusions must be challenged by default.
+The system must actively search for contradictions and alternative explanations.
+Confirmation without opposition is invalid.
+
+status: TESTING
+
+links:
+- node_0003
+- node_0007
+- node_0008
+
+impact: CORE
+
+confidence: HIGH
+
+learning_value: CORE
+
+notes: >
+Defines anti-bias mechanism.
+Prevents confirmation bias and premature conclusions.
+Forces active contradiction search.
