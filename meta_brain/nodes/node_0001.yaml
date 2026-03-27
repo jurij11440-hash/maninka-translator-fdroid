@@ -1,0 +1,23 @@
+project: META_BRAIN
+source_chat: bootstrap
+node_id: node_0001
+created: 2026-03-27
+
+type: METHOD
+
+content: >
+  META_BRAIN operates as a refutation-first system.
+  Any hypothesis must be tested through structured rejection before acceptance.
+
+status: TESTING
+
+links: []
+
+impact: SYSTEM
+
+confidence: HIGH
+
+learning_value: CORE
+
+notes: >
+  First foundational node.
