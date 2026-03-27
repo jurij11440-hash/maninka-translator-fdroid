@@ -1,0 +1,26 @@
+project: META_BRAIN
+source_chat: bootstrap
+node_id: 0004
+created: 2026-03-27
+
+type: METHOD
+
+content: >
+All file creation must be performed from repository root level.
+Never create files while inside subdirectories to avoid nested structure corruption.
+
+status: TESTING
+
+links:
+- node_0002
+- node_0003
+
+impact: SYSTEM
+
+confidence: HIGH
+
+learning_value: CORE
+
+notes: >
+This rule prevents recursive folder duplication and structural confusion.
+Always enforce root-first creation behavior.
