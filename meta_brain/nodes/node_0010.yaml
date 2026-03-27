@@ -1,0 +1,28 @@
+project: META_BRAIN
+source_chat: bootstrap
+node_id: 0010
+created: 2026-03-27
+
+type: SELF_IMPROVEMENT
+
+content: >
+The system must improve its own structure over time.
+Detected weaknesses, errors, and inefficiencies must generate new nodes.
+Learning is not only about data, but about upgrading the thinking process itself.
+
+status: TESTING
+
+links:
+- node_0003
+- node_0008
+- node_0009
+
+impact: CORE
+
+confidence: HIGH
+
+learning_value: CORE
+
+notes: >
+Defines meta-learning capability.
+System evolves not only knowledge, but its own architecture.
