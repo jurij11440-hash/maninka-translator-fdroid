@@ -1,0 +1,27 @@
+project: META_BRAIN
+source_chat: bootstrap
+node_id: 0007
+created: 2026-03-27
+
+type: CONVERGENCE
+
+content: >
+A model is valid only if multiple independent nodes confirm the same pattern.
+Single-source models are unstable and must not be trusted.
+Convergence requires repeated alignment across different observations.
+
+status: TESTING
+
+links:
+- node_0003
+- node_0006
+
+impact: CORE
+
+confidence: HIGH
+
+learning_value: CORE
+
+notes: >
+Defines validation layer for models.
+Ensures that knowledge is not based on isolated signals.
