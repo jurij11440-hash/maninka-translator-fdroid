@@ -1,0 +1,20 @@
+{
+  "project": "META_BRAIN",
+  "version": "0.1",
+  "created": "2026-01-01",
+  "nodes": [],
+  "rules": {
+    "refutation_priority": true,
+    "store_rejected": true,
+    "require_pattern_repetition": true,
+    "require_model_convergence": true,
+    "anti_bias_required": true
+  },
+  "output_types": [
+    "FACT",
+    "UNKNOWN",
+    "DATA_GAP",
+    "NO_CONCLUSION",
+    "UNSTABLE"
+  ]
+}
