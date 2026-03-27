@@ -1,0 +1,27 @@
+project: META_BRAIN
+source_chat: bootstrap
+node_id: 0003
+created: 2026-03-27
+
+type: REFUTATION
+
+content: >
+Assumption: folder structure confusion is caused by user error.
+Refutation: system UI (mobile GitHub) hides edit controls and encourages nested creation.
+Conclusion: error source is partially systemic, not purely user-driven.
+
+status: VERIFY
+
+links:
+- node_0001
+- node_0002
+
+impact: SYSTEM
+
+confidence: HIGH
+
+learning_value: CORE
+
+notes: >
+Do not attribute structural errors solely to user behavior.
+System design must be considered as contributing factor.
