@@ -1,0 +1,28 @@
+project: META_BRAIN
+source_chat: bootstrap
+node_id: 0006
+created: 2026-03-27
+
+type: MODEL
+
+content: >
+Knowledge emerges only after cycles of signal, pattern, and refutation.
+Any single observation is unreliable.
+Only repeated validation across nodes creates stable understanding.
+
+status: TESTING
+
+links:
+- node_0001
+- node_0002
+- node_0003
+
+impact: CORE
+
+confidence: HIGH
+
+learning_value: CORE
+
+notes: >
+This defines the core learning mechanism of META_BRAIN.
+Prevents premature conclusions and enforces multi-step validation.
