@@ -1,18 +1,18 @@
 project: META_BRAIN
 source_chat: bootstrap
-node_id: node_0002
+node_id: 0002
 created: 2026-03-27
 
-type: INSIGHT
+type: PATTERN
 
 content: >
-  Language inconsistency in storage structure creates long-term system instability.
-  All system-critical paths must be standardized.
+Language inconsistency in storage structure.
+All system-critical paths must be standardized.
 
 status: TESTING
 
 links:
-  - node_0001
+- node_0001
 
 impact: SYSTEM
 
@@ -21,4 +21,4 @@ confidence: HIGH
 learning_value: CORE
 
 notes: >
-  First structural inconsistency detected.
+Mixed language and structure creates confusion and increases error probability.
