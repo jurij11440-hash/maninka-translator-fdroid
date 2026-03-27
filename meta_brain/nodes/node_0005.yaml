@@ -1,0 +1,26 @@
+project: META_BRAIN
+source_chat: bootstrap
+node_id: 0005
+created: 2026-03-27
+
+type: METHOD
+
+content: >
+Do not assume user error as primary cause without testing system-level factors.
+Always evaluate interface, environment, and hidden constraints before assigning blame.
+
+status: TESTING
+
+links:
+- node_0003
+- node_0004
+
+impact: SYSTEM
+
+confidence: HIGH
+
+learning_value: CORE
+
+notes: >
+Prevents cognitive bias: attributing errors to user instead of system design.
+Forces system-level thinking before conclusions.
