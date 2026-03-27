@@ -1,0 +1,30 @@
+project: META_BRAIN
+source_chat: bootstrap
+node_id: 0008
+created: 2026-03-27
+
+type: LOOP
+
+content: >
+Learning must be continuous.
+Each new signal should trigger pattern detection, refutation, and model validation.
+The system must operate in cycles, not isolated steps.
+
+status: TESTING
+
+links:
+- node_0001
+- node_0002
+- node_0003
+- node_0006
+- node_0007
+
+impact: CORE
+
+confidence: HIGH
+
+learning_value: CORE
+
+notes: >
+Defines continuous learning cycle.
+Transforms META_BRAIN from static storage into active system.
