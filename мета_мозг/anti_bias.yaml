@@ -1,0 +1,78 @@
+anti_bias:
+
+  core_rules:
+
+    prefer_refutation: true
+    confirmation_forbidden: true
+
+  mandatory_checks:
+
+    before_accepting_pattern:
+      - check_alternative_explanations
+      - check_data_quality
+      - check_sample_size
+
+    before_creating_model:
+      - require_multiple_patterns
+      - check_pattern_independence
+      - run_anti_bias_test
+
+  bias_types:
+
+    confirmation_bias:
+      prevent: true
+
+    overfitting:
+      prevent: true
+
+    noise_learning:
+      prevent: true
+
+    premature_conclusion:
+      prevent: true
+
+  hypothesis_control:
+
+    max_parallel_hypotheses: 3
+
+    rules:
+      - must_compete
+      - must_be_tested_independently
+
+  rejection_priority:
+
+    priority: high
+
+    rules:
+      - rejected_hypothesis_is_valuable
+      - store_rejection_reason
+
+  pattern_validation:
+
+    require_repetition: true
+
+    rules:
+      - must_repeat_in_different_contexts
+      - must_not_depend_on_single_case
+
+  model_validation:
+
+    anti_bias_test:
+
+      required: true
+
+      checks:
+        - explain_why_model_may_be_wrong
+        - search_for_counter_examples
+
+  safety:
+
+    block_if:
+      - no_refutation_attempt
+      - weak_evidence
+      - single_source_data
+
+  unknown_policy:
+
+    unknown_allowed: true
+    unknown_preferred_over_false_certainty: true
