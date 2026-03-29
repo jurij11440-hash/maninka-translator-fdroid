@@ -1,0 +1,82 @@
+learning_engine:
+
+  learning_modes:
+
+    enabled: true
+
+    types:
+      - refutation_learning
+      - pattern_learning
+      - model_refinement
+
+  refutation_learning:
+
+    priority: high
+
+    rules:
+      - learn_from_rejected_hypotheses
+      - extract_failure_patterns
+      - store_common_errors
+
+  pattern_learning:
+
+    rules:
+      - detect_repeating_structures
+      - ignore_single_cases
+      - require_cross_context
+
+  model_learning:
+
+    rules:
+      - update_only_if_validated
+      - avoid_fast_updates
+      - require_stability
+
+  feedback_processing:
+
+    sources:
+      - audit_log
+      - execution_results
+
+    actions:
+      - detect_mistakes
+      - adjust_rules
+      - refine_patterns
+
+  adaptation:
+
+    speed: controlled
+
+    rules:
+      - no_instant_changes
+      - gradual_improvement
+      - rollback_if_error
+
+  protection:
+
+    prevent:
+      - learning_from_noise
+      - learning_from_unverified_data
+      - reinforcing_wrong_models
+
+  memory_interaction:
+
+    allowed_updates:
+      - patterns
+      - models
+
+    forbidden_updates:
+      - core_rules
+
+  evaluation:
+
+    metrics:
+      - error_reduction
+      - pattern_accuracy
+      - model_stability
+
+  safety:
+
+    block_if:
+      - insufficient_data
+      - conflicting_patterns
