@@ -1,0 +1,23 @@
+project: META_BRAIN
+source_chat: maninka_translator
+node_id: node_0013
+created: 2026-03-29
+
+type: REFUTATION
+
+content:
+  hypothesis_id: node_0012
+  tests:
+    - no_pattern_repeat
+    - weak_signal
+    - noise_detected
+  result: rejected
+
+status: CLOSED
+
+impact: high
+confidence: 0.85
+
+notes: >
+  Hypothesis failed validation.
+  No stable pattern detected.
