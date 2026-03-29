@@ -1,0 +1,48 @@
+system: META_BRAIN
+
+version: 1.0
+
+principles:
+  - truth_over_confirmation
+  - refutation_first
+  - no_early_conclusions
+  - unknown_is_valid_state
+  - patterns_require_repetition
+  - models_require_convergence
+
+states:
+  allowed:
+    - SIGNAL
+    - HYPOTHESIS
+    - REFUTATION
+    - PATTERN
+    - MODEL
+    - CORE
+
+rules:
+
+  transition:
+    SIGNAL_to_HYPOTHESIS: requires_pattern_candidate
+    HYPOTHESIS_to_REFUTATION: mandatory
+    REFUTATION_to_PATTERN: requires_survival
+    PATTERN_to_MODEL: requires_repetition >= 3
+    MODEL_to_CORE: requires_stability
+
+  restrictions:
+    - no_direct_SIGNAL_to_MODEL
+    - no_MODEL_without_REFUTATION
+    - no_PATTERN_without_repetition
+    - no_CORE_without_long_term_validation
+
+  anti_bias:
+    - reject_beautiful_but_unproven
+    - track_failed_hypotheses
+    - reward_refutation
+    - mark_unknown_if_no_data
+
+output:
+  format: structured
+  required_fields:
+    - type
+    - status
+    - confidence
