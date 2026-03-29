@@ -1,0 +1,98 @@
+execution_flow:
+
+  main_loop:
+
+    steps:
+      - detect_signal
+      - classify_signal
+      - generate_hypothesis
+      - run_refutation
+      - extract_pattern
+      - update_model
+      - store_memory
+
+  signal_handling:
+
+    detect_signal:
+      sources:
+        - user_input
+        - system_state
+
+    classify_signal:
+      types:
+        - noise
+        - useful
+        - critical
+
+  decision_logic:
+
+    if_noise:
+      action:
+        - ignore
+        - do_not_store
+
+    if_useful:
+      action:
+        - process
+        - store_as_signal
+
+    if_critical:
+      action:
+        - prioritize
+        - immediate_processing
+
+  hypothesis_cycle:
+
+    generate:
+      max_active: 3
+
+    refutation:
+      required: true
+
+    outcome:
+      success:
+        - convert_to_pattern
+      failure:
+        - store_as_rejected
+
+  pattern_cycle:
+
+    formation:
+      require_repetition: 2
+
+    validation:
+      consistency_check: true
+
+  model_cycle:
+
+    creation:
+      require_patterns: 2
+
+    validation:
+      anti_bias_check: true
+
+  storage_trigger:
+
+    when_store:
+      - pattern_detected
+      - model_updated
+      - core_rule_changed
+
+    when_not_store:
+      - noise
+      - failed_hypothesis
+
+  feedback_loop:
+
+    required: true
+
+    actions:
+      - evaluate_last_cycle
+      - adjust_strategy
+
+  safety:
+
+    prevent:
+      - premature_conclusions
+      - overfitting
+      - noise_learning
