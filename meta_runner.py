@@ -14,7 +14,7 @@ def run():
 
     print(f"🚀 START from: {start_node}")
 
-    node_path = f"meta_brain/узлы/meta_brain/узлы/{start_node}.yaml"
+    node_path = f"{BASE}/nodes/{start_node}.yaml"
 
     if not os.path.exists(node_path):
         print("❌ Node not found")
