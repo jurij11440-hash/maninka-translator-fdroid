@@ -1,7 +1,7 @@
 import yaml
 import os
 
-BASE = "meta_мозг"
+BASE = "meta_brain"
 
 def load_yaml(path):
     with open(path, "r", encoding="utf-8") as f:
