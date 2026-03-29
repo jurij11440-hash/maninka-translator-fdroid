@@ -1,0 +1,75 @@
+engine: META_BRAIN_TRANSITION
+
+version: 1.0
+
+flow:
+  - SIGNAL
+  - HYPOTHESIS
+  - REFUTATION
+  - PATTERN
+  - MODEL
+  - CORE
+
+transitions:
+
+  SIGNAL_to_HYPOTHESIS:
+    condition:
+      - potential_structure_detected
+    action:
+      - create_hypothesis
+
+  HYPOTHESIS_to_REFUTATION:
+    condition:
+      - always_required
+    action:
+      - attempt_disprove
+
+  REFUTATION_to_PATTERN:
+    condition:
+      - hypothesis_survives
+      - minimum_links: 2
+    action:
+      - mark_as_pattern
+
+  PATTERN_to_MODEL:
+    condition:
+      - repetition >= 3
+      - no_successful_refutation
+    action:
+      - upgrade_to_model
+
+  MODEL_to_CORE:
+    condition:
+      - long_term_stability
+      - multiple_contexts_confirmed
+    action:
+      - promote_to_core
+
+fallbacks:
+
+  failed_hypothesis:
+    action:
+      - mark_as_REJECTED
+      - store_for_learning
+
+  weak_pattern:
+    action:
+      - downgrade_to_hypothesis
+
+  broken_model:
+    action:
+      - downgrade_to_pattern
+
+anti_skip:
+  - forbid_SIGNAL_to_MODEL
+  - forbid_SIGNAL_to_CORE
+  - forbid_HYPOTHESIS_to_MODEL
+
+anti_bias:
+  - prioritize_refutation
+  - detect_overconfidence
+  - flag_low_data_models
+
+output_control:
+  require_validation: true
+  allow_unknown: true
