@@ -1,0 +1,28 @@
+runtime:
+
+  mode: research
+
+  enable_modules:
+
+    memory: true
+    learning: true
+    anti_bias: true
+    logging: true
+
+  processing:
+
+    max_steps: 10
+    allow_unknown: true
+    require_evidence: true
+
+  behavior:
+
+    prefer_refutation: true
+    avoid_overconfidence: true
+    store_failed_hypotheses: true
+
+  output:
+
+    format: structured
+    include_status: true
+    include_confidence: true
