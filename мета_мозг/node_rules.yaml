@@ -1,0 +1,62 @@
+node_system: META_BRAIN
+
+version: 1.0
+
+required_fields:
+  - project
+  - source_chat
+  - node_id
+  - created
+  - type
+  - content
+  - status
+  - impact
+  - confidence
+
+optional_fields:
+  - links
+  - learning_value
+  - notes
+
+type_definitions:
+  SIGNAL: raw observation without structure
+  HYPOTHESIS: proposed explanation
+  REFUTATION: test or contradiction
+  PATTERN: repeated structure (>=2)
+  MODEL: stable pattern (>=3 confirmations)
+  CORE: validated long-term model
+
+status_definitions:
+  NEW: just created
+  TESTING: under validation
+  CONFIRMED: passed checks
+  REJECTED: disproved
+
+rules:
+
+  creation:
+    - every node must have unique node_id
+    - node_id format: node_XXXX
+    - created must be date (YYYY-MM-DD)
+
+  content:
+    - must be concise
+    - must not contain conclusions without evidence
+    - must separate observation from interpretation
+
+  links:
+    - must reference existing node_id
+    - no circular self-linking
+
+  validation:
+    - PATTERN requires >=2 linked nodes
+    - MODEL requires >=3 confirmations
+    - CORE requires long-term validation
+
+restrictions:
+  - no empty content
+  - no duplicated nodes
+  - no skipping levels (SIGNAL → MODEL forbidden)
+
+output:
+  strict_format: true
