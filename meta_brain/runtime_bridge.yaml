@@ -1,0 +1,56 @@
+runtime_bridge:
+
+  version: 1.0
+
+  binding:
+
+    execution_engine:
+      path: "../мета_мозг/"
+      modules:
+        - execution_flow.yaml
+        - memory_logic.yaml
+        - learning_engine.yaml
+        - audit_log.yaml
+
+    control_system:
+      path: "./"
+      modules:
+        - node_rules.yaml
+        - node_lifecycle.yaml
+        - transition_engine.yaml
+        - system_rules.yaml
+
+  routing:
+
+    node_creation:
+      handled_by: control_system
+
+    node_transition:
+      handled_by: control_system
+
+    memory_write:
+      handled_by: execution_engine
+
+    learning_update:
+      handled_by: execution_engine
+
+    audit_logging:
+      handled_by: execution_engine
+
+  synchronization:
+
+    required:
+      - node_id
+      - status
+      - timestamp
+
+    rules:
+      - control_system_decides_state
+      - execution_engine_executes_state
+      - all_actions_logged
+
+  safety:
+
+    - no_execution_without_node
+    - no_learning_without_log
+    - no_state_skip_allowed
