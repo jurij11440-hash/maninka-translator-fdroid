@@ -1,17 +1,2 @@
-entry: META_BRAIN_START
-
-input:
-  type: SIGNAL
-  content: "test_signal"
-
 execution:
   start_node: node_0011
-  use_runtime: node_runtime.yaml
-  use_transition: transition_engine.yaml
-
-output:
-  generate_new_nodes: true
-  store_results: true
-  update_memory: true
-
-status: READY
