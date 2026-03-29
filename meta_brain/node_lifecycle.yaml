@@ -1,0 +1,90 @@
+node_lifecycle:
+
+  version: 1.0
+
+  entry:
+    start_as: SIGNAL
+
+  stages:
+
+    SIGNAL:
+      next:
+        - HYPOTHESIS
+        - REJECTED
+      conditions:
+        HYPOTHESIS:
+          - signal_is_meaningful
+        REJECTED:
+          - signal_is_noise
+
+    HYPOTHESIS:
+      next:
+        - REFUTATION
+        - REJECTED
+      conditions:
+        REFUTATION:
+          - hypothesis_defined
+        REJECTED:
+          - invalid_or_empty
+
+    REFUTATION:
+      next:
+        - PATTERN
+        - REJECTED
+        - HYPOTHESIS
+      conditions:
+        PATTERN:
+          - survived_refutation
+          - linked_evidence >= 2
+        REJECTED:
+          - contradiction_found
+        HYPOTHESIS:
+          - needs_reformulation
+
+    PATTERN:
+      next:
+        - MODEL
+        - HYPOTHESIS
+        - REJECTED
+      conditions:
+        MODEL:
+          - repetition >= 3
+          - cross_context_support
+        HYPOTHESIS:
+          - weak_pattern
+        REJECTED:
+          - pattern_breaks
+
+    MODEL:
+      next:
+        - CORE
+        - PATTERN
+        - REJECTED
+      conditions:
+        CORE:
+          - stable_over_time
+          - independently_supported
+        PATTERN:
+          - partially_broken
+        REJECTED:
+          - invalidated
+
+    CORE:
+      next:
+        - MODEL
+      conditions:
+        MODEL:
+          - core_needs_revision
+
+  mandatory_rules:
+    - every_stage_change_must_be_logged
+    - rejected_nodes_must_be_kept
+    - no_direct_SIGNAL_to_MODEL
+    - no_direct_HYPOTHESIS_to_CORE
+    - unknown_allowed_at_any_stage
+
+  outputs:
+    valid_terminal_states:
+      - REJECTED
+      - CORE
+      - MODEL
