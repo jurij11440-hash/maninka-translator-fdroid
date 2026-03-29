@@ -1,0 +1,63 @@
+audit_log:
+
+  logging:
+
+    enabled: true
+
+    events:
+      - signal_detected
+      - hypothesis_created
+      - hypothesis_rejected
+      - pattern_detected
+      - model_created
+      - model_rejected
+
+  structure:
+
+    required_fields:
+      - node_id
+      - timestamp
+      - type
+      - decision
+      - reason
+      - confidence
+
+  traceability:
+
+    require_links: true
+
+    rules:
+      - link_to_source_signal
+      - link_to_previous_node
+
+  rejection_logging:
+
+    mandatory: true
+
+    include:
+      - reason
+      - failed_conditions
+
+  model_history:
+
+    track_changes: true
+
+    include:
+      - previous_version
+      - reason_for_update
+
+  integrity:
+
+    prevent_modification: true
+
+    require_hash: true
+
+  transparency:
+
+    must_explain:
+      - why_decision_made
+      - why_rejected
+
+  safety:
+
+    block_if_missing_log: true
