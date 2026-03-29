@@ -1,0 +1,38 @@
+engine: META_BRAIN_RUNTIME
+
+version: 1.0
+
+entry_point: SIGNAL
+
+pipeline:
+  SIGNAL:
+    next: HYPOTHESIS
+
+  HYPOTHESIS:
+    next: REFUTATION
+
+  REFUTATION:
+    next: PATTERN
+
+  PATTERN:
+    next: MODEL
+
+  MODEL:
+    next: LEARNING
+
+  LEARNING:
+    next: SIGNAL
+
+execution_rules:
+  - always_validate_before_model
+  - store_failed_paths
+  - require_pattern_before_model
+  - loop_enabled: true
+
+memory_binding:
+  nodes_path: meta_brain/nodes
+  pattern_store: enabled
+  model_store: enabled
+  refutation_log: enabled
+
+status: ACTIVE
