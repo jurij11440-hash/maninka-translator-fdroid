@@ -1,0 +1,74 @@
+executor: META_BRAIN_NODE_EXECUTOR
+
+version: 1.0
+
+inputs:
+  - node
+  - signal_input
+
+pipeline:
+
+  - step: INIT_NODE
+    action:
+      - load_template
+      - assign_node_id
+      - set_created_timestamp
+      - set_status_SIGNAL
+      - attach_signal_input_to_content
+
+  - step: VALIDATE_NODE
+    action:
+      - check_required_fields
+      - validate_structure
+
+  - step: APPLY_TRANSITION_ENGINE
+    action:
+      - load_transition_engine
+      - evaluate_conditions
+      - execute_transition
+
+  - step: APPLY_NODE_RULES
+    action:
+      - enforce_node_rules
+      - update_confidence
+      - update_impact
+
+  - step: APPLY_MEMORY
+    action:
+      - load_memory_logic
+      - store_node
+      - update_indexes
+
+  - step: APPLY_LEARNING
+    action:
+      - load_learning_engine
+      - update_patterns
+      - detect_repetition
+
+  - step: APPLY_AUDIT
+    action:
+      - load_audit_log
+      - record_event
+
+  - step: OUTPUT
+    action:
+      - return_node
+      - return_status
+      - return_next_possible_transitions
+
+rules:
+
+  - execution_is_sequential
+  - no_step_skipped
+  - every_step_logged
+  - failure_stops_pipeline
+
+integration:
+
+  uses:
+    - node_template.yaml
+    - node_rules.yaml
+    - transition_engine.yaml
+    - memory_logic.yaml
+    - learning_engine.yaml
+    - audit_log.yaml
