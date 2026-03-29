@@ -1,0 +1,43 @@
+system_core:
+
+  version: 1.0
+
+  modules:
+
+    node_rules: node_rules.yaml
+    memory_logic: memory_logic.yaml
+    transition_engine: transition_engine.yaml
+    execution_flow: execution_flow.yaml
+    anti_bias: anti_bias.yaml
+    audit_log: audit_log.yaml
+    learning_engine: learning_engine.yaml
+    system_limits: system_limits.yaml
+
+  pipeline:
+
+    - input_signal
+    - memory_filter
+    - hypothesis_generation
+    - refutation
+    - pattern_detection
+    - model_update
+    - logging
+    - learning
+
+  control:
+
+    enforce_limits: true
+    enforce_anti_bias: true
+    enforce_logging: true
+
+  fail_safe:
+
+    on_missing_data: stop
+    on_conflict: mark_verify
+    on_uncertainty: allow_unknown
+
+  priority:
+
+    - refutation_over_confirmation
+    - evidence_over_assumption
+    - unknown_over_false
