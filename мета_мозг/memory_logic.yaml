@@ -1,0 +1,68 @@
+memory_logic:
+
+  store_rules:
+
+    always_store:
+      - PATTERN
+      - MODEL
+      - CORE
+
+    conditional_store:
+      - HYPOTHESIS:
+          if:
+            - high_signal
+            - unique_case
+
+    never_store:
+      - raw_noise
+      - unverified_assumptions
+      - emotional_input
+
+  retention_policy:
+
+    max_hypothesis_age: short
+    max_pattern_age: medium
+    model_lifetime: long
+    core_lifetime: permanent
+
+  compression:
+
+    enable: true
+
+    rules:
+      - merge_similar_patterns
+      - remove_duplicates
+      - summarize_old_hypotheses
+
+  priority:
+
+    highest:
+      - CORE
+      - MODEL
+
+    medium:
+      - PATTERN
+
+    lowest:
+      - HYPOTHESIS
+
+  memory_health:
+
+    required_checks:
+      - no_noise_growth
+      - pattern_consistency
+      - model_validity
+
+    auto_cleanup:
+      - remove_rejected
+      - prune_weak_patterns
+
+  unknown_handling:
+
+    allow_unknown: true
+    mark_unknown: REQUIRED
+
+  anti_overload:
+
+    max_active_hypotheses: 5
+    max_patterns_per_topic: 10
