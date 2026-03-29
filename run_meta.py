@@ -1,8 +1,8 @@
 import yaml
 import os
 
-ENTRY_PATH = "мета_мозг/runtime_entry.yaml"
-NODE_BASE = "meta_brain/узлы/meta_brain/узлы"
+ENTRY_PATH = "meta_brain/runtime_entry.yaml"
+NODE_BASE = "meta_brain/nodes"
 
 
 def load_yaml(path: str):
