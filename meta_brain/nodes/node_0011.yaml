@@ -1,0 +1,5 @@
+node_id: node_0011
+type: SIGNAL
+status: READY
+next: node_0012
+content: "bootstrap signal"
