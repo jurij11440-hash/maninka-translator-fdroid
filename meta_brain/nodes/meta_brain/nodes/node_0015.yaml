@@ -1,0 +1,26 @@
+project: META_BRAIN
+source_chat: maninka_translator
+node_id: node_0015
+created: 2026-03-29
+
+type: MODEL
+
+content:
+  based_on:
+    - node_0014
+  model:
+    name: signal_validation_model_v1
+    rules:
+      - require_minimum_two_signals
+      - reject_unstable_patterns
+      - prioritize_refutation_before_acceptance
+  scope: general_reasoning
+
+status: ACTIVE
+
+impact: high
+confidence: 0.8
+
+notes: >
+  First model created from pattern recognition.
+  System now applies validation before forming conclusions.
