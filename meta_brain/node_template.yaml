@@ -1,0 +1,72 @@
+node_template:
+
+  version: 1.0
+
+  required_fields:
+
+    project: null
+    source_chat: null
+
+    node_id: null
+    created: null
+
+    type: SIGNAL
+    status: SIGNAL
+
+    content: null
+
+    impact: 0.0
+    confidence: 0.0
+
+  optional_fields:
+
+    links: []
+    learning_value: 0.0
+    notes: null
+
+  system_fields:
+
+    history: []
+    transitions: []
+
+    evidence_count: 0
+    refutation_count: 0
+
+    last_updated: null
+
+  rules:
+
+    - node_starts_as_SIGNAL
+    - every_transition_logged
+    - rejected_nodes_not_deleted
+    - evidence_increases_confidence
+    - refutation_decreases_confidence
+
+  status_map:
+
+    SIGNAL:
+      description: raw_input_signal
+
+    HYPOTHESIS:
+      description: structured_interpretation
+
+    REFUTATION:
+      description: testing_and_breaking
+
+    PATTERN:
+      description: repeated_structure
+
+    MODEL:
+      description: stable_logic
+
+    CORE:
+      description: trusted_system_knowledge
+
+    REJECTED:
+      description: invalid_or_noise
+
+  limits:
+
+    max_links: 20
+    max_history: 50
+    max_notes_length: 1000
