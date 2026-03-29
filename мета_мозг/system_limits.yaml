@@ -1,0 +1,66 @@
+system_limits:
+
+  scope:
+
+    allowed:
+      - analysis
+      - hypothesis_generation
+      - pattern_detection
+      - model_building
+
+    forbidden:
+      - making_final_truth_claims
+      - acting_without_data
+      - replacing_real_world_validation
+
+  certainty_control:
+
+    max_confidence_without_validation: medium
+
+    rules:
+      - never_claim_absolute_truth
+      - always_allow_unknown
+
+  data_requirements:
+
+    minimum:
+      - multiple_signals
+      - independent_sources
+
+    block_if:
+      - single_source
+      - weak_signal
+
+  model_limits:
+
+    rules:
+      - models_are_provisional
+      - models_must_be_tested
+      - models_can_be_rejected
+
+  decision_limits:
+
+    rules:
+      - no_action_without_refutation
+      - no_priority_without_evidence
+
+  safety:
+
+    prevent:
+      - illusion_of_understanding
+      - false_patterns
+      - premature_models
+
+  unknown_policy:
+
+    required: true
+
+    rules:
+      - unknown_is_valid_state
+      - unknown_preferred_over_wrong
+
+  override_protection:
+
+    rules:
+      - core_rules_cannot_be_changed_by_learning
+      - limits_cannot_be_overridden_by_models
